@@ -131,6 +131,16 @@ function onItemSendHandler2(event) {
   );
 }
 
+function onItemSendHandler3(event) {
+ console.log("**********onItemSendHandler3");
+ console.log(event);
+ event.completed({
+          allowEvent: false,
+          errorMessage: "Failed to send.",
+        });
+        return;
+}
+
 /**
  * Get the property values of existing categories.
  * @param {Office.CategoryDetails[]} categories Existing categories in Outlook.
@@ -347,5 +357,5 @@ console.log("**********inlaunchevent");
 
 Office.actions.associate("onMessageComposeHandler", onItemComposeHandler);
 Office.actions.associate("onAppointmentComposeHandler", onItemComposeHandler);
-Office.actions.associate("onMessageSendHandler", onItemSendHandler2);
+Office.actions.associate("onMessageSendHandler", onItemSendHandler3);
 Office.actions.associate("onAppointmentSendHandler", onItemSendHandler2);
